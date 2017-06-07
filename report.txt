@@ -1,0 +1,31 @@
+a)
+
+openFile --> opens required file and returns ifstream, prints error message otherwise
+fillPref --> fills the sent preference list according to file
+find --> checks if the sent woman is already matched, returns a boolean value accordingly
+comparePref --> finds places of the currently matched man and the proposer in woman's preference list and returns true if the proposer is a higher preference, false otherwise
+
+We open ifstream using openFile method and get matrix size than fill preference lists using fillPref method.
+Then add every men in a queue and use this to create a while loop which continues until the queue is empty.
+In this loop we iterate through single man and match them with their preferences according to Gale-Shepley algorithm as stated in section B.
+Finally we print out the matching which was saved in a map during the while loop.
+
+
+
+b)
+	while( singles queue is empty)
+		if( preferred woman is not taken)
+			first man in queue matches preferred woman
+		else if ( woman is engaged but she preferes new proposer)
+			man matches preferred woman
+		else
+			moves to the next woman in mans' preference list
+
+
+The complexity of this algorithm is O(n^2), as we have a nXn matrix preference list and in worst case scenario we have to deal with all of them.
+
+
+c)
+
+This solution is woman optimal. 
+Because although men propose women in this scenario, women can change their partner according to their preferences which makes women get a more preferred partner than men.
